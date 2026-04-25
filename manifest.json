@@ -8,6 +8,11 @@
   "theme_color": "#1a7f37",
   "icons": [
     {
+      "src": "icons/D52461AB-D6BA-45EF-A283-9BF2C9ACC69E.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
       "src": "icons/774E76AB-7EB5-44D9-86C3-209F3E1859E4.png",
       "sizes": "512x512",
       "type": "image/png"
