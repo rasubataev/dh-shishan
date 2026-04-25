@@ -1,7 +1,15 @@
-"icons": [
-  {
-    "src": "icons/774E76AB-7EB5-44D9-86C3-209F3E1859E4.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }
-]
+{
+  "name": "Darul Hadis Pro",
+  "short_name": "Darul Hadis",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a7f37",
+  "icons": [
+    {
+      "src": "icons/774E76AB-7EB5-44D9-86C3-209F3E1859E4.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
