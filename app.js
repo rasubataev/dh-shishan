@@ -4212,6 +4212,17 @@ function rateCurrent(kind) {
   const c = STATE.cards[session.current];
   const cardId = session.current;
   const elapsed = now() - session.stats.cardStartMs;
+
+  if (kind === 'easy') {
+    session.stats.reviewed += 1;
+    session.stats.correct += 1;
+    bumpDay(1, 1, 0, elapsed);
+    const fc = $('#flashcard');
+    fc.classList.add('swipe-right');
+    setTimeout(() => renderNextCard(), 260);
+    return;
+  }
+
   const wasNew = !c.flags.learned && (c.reps || 0) === 0;
   rate(cardId, kind);
   session.stats.reviewed += 1;
@@ -4219,11 +4230,12 @@ function rateCurrent(kind) {
   if (wasNew && STATE.cards[cardId].flags.learned) session.stats.newLearned += 1;
   bumpDay(1, kind !== 'hard' ? 1 : 0, (wasNew && STATE.cards[cardId].flags.learned) ? 1 : 0, elapsed);
   const fc = $('#flashcard');
-  const dir = kind === 'easy' ? 'swipe-right' : kind === 'hard' ? 'swipe-left' : 'swipe-up';
+  const dir = kind === 'hard' ? 'swipe-left' : 'swipe-up';
   fc.classList.add(dir);
   reinsert(cardId, kind);
   setTimeout(() => renderNextCard(), 260);
 }
+
 
 function finishSession() {
   session.active = false;
